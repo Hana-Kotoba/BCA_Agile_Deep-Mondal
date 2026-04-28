@@ -1,0 +1,49 @@
+
+// Parent Class
+class Hospital {
+void hospitalInfo() {
+System.out.println("This is a General Hospital System.");
+}
+}
+
+// Interface 1
+interface Doctor {
+void treatPatient();
+}
+
+// Interface 2
+interface Staff {
+void manageRecords();
+}
+
+// Child Class implementing Hybrid Inheritance
+// (Inherits from 1 Class and 2 Interfaces)
+class Surgeon extends Hospital implements Doctor, Staff {
+
+@Override
+public void treatPatient() {
+    System.out.println("Surgeon is performing surgery and treating the patient.");
+}
+
+@Override
+public void manageRecords() {
+    System.out.println("Surgeon is updating medical records.");
+}
+
+void surgeonSpecialty() {
+    System.out.println("Specialty: Orthopedic Surgery.");
+}
+}
+
+public class Program1 {
+public static void main(String[] args) {
+// Create an object of the child class
+Surgeon mySurgeon = new Surgeon();
+
+    // Accessing methods from all levels of the inheritance
+    mySurgeon.hospitalInfo();     // From Hospital Class
+    mySurgeon.treatPatient();     // From Doctor Interface
+    mySurgeon.manageRecords();    // From Staff Interface
+    mySurgeon.surgeonSpecialty(); // From Surgeon Class
+}
+}
